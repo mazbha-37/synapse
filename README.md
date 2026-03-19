@@ -1,200 +1,118 @@
-# Synapse — Personal Data Command Center
+&lt;div align="center"&gt;
+  &lt;a href="https://synapse-ashy-psi.vercel.app"&gt;
+    &lt;img src="public/logo.svg" alt="Synapse Logo" width="80" height="80"&gt;
+  &lt;/a&gt;
 
-A real-time, AI-powered dashboard that aggregates live data from multiple APIs into a fully customizable drag-and-drop interface. Build your personal command center with widgets for weather, crypto, news, stocks, NASA, and more — all in one place.
+  &lt;h1 align="center"&gt;Synapse&lt;/h1&gt;
+  
+  &lt;p align="center"&gt;
+    &lt;strong&gt;Your Personal Data Command Center&lt;/strong&gt;&lt;br&gt;
+    Real-time, AI-powered dashboard that aggregates live data into a customizable drag-and-drop interface.
+  &lt;/p&gt;
 
-**Live Demo → [synapse-ashy-psi.vercel.app](https://synapse-ashy-psi.vercel.app/)**
+  &lt;p align="center"&gt;
+    &lt;a href="https://synapse-ashy-psi.vercel.app"&gt;&lt;strong&gt;🚀 Live Demo&lt;/strong&gt;&lt;/a&gt; •
+    &lt;a href="#-screenshots"&gt;📸 Screenshots&lt;/a&gt; •
+    &lt;a href="#-features"&gt;✨ Features&lt;/a&gt; •
+    &lt;a href="#-tech-stack"&gt;🛠️ Tech Stack&lt;/a&gt; •
+    &lt;a href="#-getting-started"&gt;⚡ Quick Start&lt;/a&gt;
+  &lt;/p&gt;
+
+  &lt;p align="center"&gt;
+    &lt;img src="https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js" alt="Next.js 16"&gt;
+    &lt;img src="https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react" alt="React 19"&gt;
+    &lt;img src="https://img.shields.io/badge/TypeScript-5.0-3178C6?style=flat-square&logo=typescript" alt="TypeScript"&gt;
+    &lt;img src="https://img.shields.io/badge/Tailwind-v4-38B2AC?style=flat-square&logo=tailwind-css" alt="Tailwind"&gt;
+    &lt;img src="https://img.shields.io/badge/License-MIT-green.svg?style=flat-square" alt="License"&gt;
+    &lt;img src="https://img.shields.io/badge/Vercel-Deployed-000000?style=flat-square&logo=vercel" alt="Vercel"&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
 
 ---
 
-## Features
+## 📸 Screenshots
 
-- **Drag & Drop Dashboard** — Freely arrange and resize widgets using a responsive 12-column grid
-- **11 Live Data Widgets** — Weather, News, Crypto, GitHub, NASA APOD, Air Quality, Forex, Stocks, Earthquakes, Quote of the Day, Public Holidays
-- **Synapse AI Assistant** — Streaming chat powered by Groq (compound-beta with built-in web search) and Google Gemini, with full awareness of your live dashboard data
-- **Authentication** — Email/password and Google OAuth via NextAuth v5
-- **Admin Panel** — User management, audit logs, API health monitoring, and analytics charts
-- **Dark / Light Mode** — System-aware theme switching
-- **Responsive** — Adaptive grid breakpoints for all screen sizes
+&lt;div align="center"&gt;
+  &lt;img src="public/screenshots/landing-page.png" alt="Synapse Landing Page" width="100%"&gt;
+  &lt;p&gt;&lt;em&gt;Beautiful landing page with dark theme&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div align="center" style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;"&gt;
+  &lt;img src="public/screenshots/dashboard-widgets.png" alt="Dashboard Widgets" width="48%"&gt;
+  &lt;img src="public/screenshots/api-health-monitor.png" alt="API Health Monitor" width="48%"&gt;
+&lt;/div&gt;
+&lt;p align="center"&gt;&lt;em&gt;Left: Customizable widget dashboard | Right: Real-time API health monitoring&lt;/em&gt;&lt;/p&gt;
+
+&lt;div align="center"&gt;
+  &lt;img src="public/screenshots/analytics-dashboard.png" alt="Platform Analytics" width="80%"&gt;
+  &lt;p&gt;&lt;em&gt;Comprehensive analytics for platform usage and performance&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ---
 
-## Tech Stack
+## ✨ Features
 
-### Framework & Language
+### 🎯 Core Capabilities
+- **🎛️ Drag & Drop Dashboard** — Freely arrange and resize widgets using a responsive 12-column grid powered by `react-grid-layout`
+- **📊 11+ Live Data Widgets** — Weather, Crypto, News, GitHub Trends, NASA APOD, Air Quality, Forex, Stocks, Earthquakes, Quotes, and Public Holidays
+- **🤖 Synapse AI Assistant** — Streaming chat powered by Groq (compound-beta with web search) and Google Gemini, with full awareness of your live dashboard data
+- **🔐 Enterprise-Grade Auth** — Email/password and Google OAuth via NextAuth v5 with JWT sessions
+- **🎨 Dual Theme** — System-aware dark/light mode with smooth transitions
 
-| Technology | Details |
+### 🛠️ Admin & Monitoring
+- **📈 Analytics Dashboard** — Track user growth, widget popularity, API usage, and AI chat metrics
+- **🔍 API Health Monitor** — Real-time status monitoring for all 6 external APIs with response times and error tracking
+- **📝 Audit Logs** — Complete activity tracking for security and compliance
+- **👥 User Management** — Admin panel for managing users and permissions
+
+### ⚡ Developer Experience
+- **📱 Responsive Design** — Adaptive grid breakpoints for mobile, tablet, and desktop
+- **🔄 Real-time Updates** — Live data refresh with manual and auto-refresh capabilities
+- **⌨️ Keyboard Shortcuts** — Press `R` to refresh dashboard, `⌘+K` for command palette
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+| Technology | Purpose |
 |-----------|---------|
 | [Next.js 16](https://nextjs.org/) | App Router, API Routes, Server Components |
-| [React 19](https://react.dev/) | Latest concurrent features |
-| [TypeScript 5](https://www.typescriptlang.org/) | Strict mode throughout |
+| [React 19](https://react.dev/) | Concurrent features & Server Actions |
+| [TypeScript 5](https://www.typescriptlang.org/) | Strict type safety throughout |
+| [Tailwind CSS v4](https://tailwindcss.com/) | Utility-first styling |
+| [shadcn/ui](https://ui.shadcn.com/) | Accessible component primitives |
+| [react-grid-layout](https://github.com/react-grid-layout/react-grid-layout) | Draggable & resizable grid system |
 
-### Database & Auth
-
+### Backend & Database
 | Technology | Purpose |
 |-----------|---------|
 | [MongoDB Atlas](https://www.mongodb.com/) | Primary database |
 | [Mongoose 9](https://mongoosejs.com/) | ODM & schema modeling |
-| [NextAuth v5](https://authjs.dev/) | JWT sessions, Google OAuth, Credentials provider |
+| [NextAuth v5](https://authjs.dev/) | Authentication & session management |
 | [bcryptjs](https://github.com/dcodeIO/bcrypt.js) | Password hashing |
 
-### AI & Communications
-
+### AI & APIs
 | Technology | Purpose |
 |-----------|---------|
-| [Groq SDK](https://console.groq.com/) | Streaming AI chat — `compound-beta` model with built-in web search |
-| [Google Gemini](https://ai.google.dev/) | Alternative AI model — `gemini-1.5-flash` |
-| [Resend](https://resend.com/) | Transactional email for password reset |
-
-### UI & Styling
-
-| Technology | Purpose |
-|-----------|---------|
-| [Tailwind CSS v4](https://tailwindcss.com/) | Utility-first styling |
-| [shadcn/ui](https://ui.shadcn.com/) | Accessible, composable component primitives |
-| [Lucide React](https://lucide.dev/) | Icon library |
-| [Recharts](https://recharts.org/) | Data visualization & charts |
-| [react-grid-layout](https://github.com/react-grid-layout/react-grid-layout) | Draggable & resizable dashboard grid |
-| [Sonner](https://sonner.emilkowal.ski/) | Toast notifications |
-| [next-themes](https://github.com/pacocoursey/next-themes) | Dark / light mode |
-| [tw-animate-css](https://github.com/Wombosvideo/tw-animate-css) | CSS animation utilities |
-
-### Forms & Validation
-
-| Technology | Purpose |
-|-----------|---------|
-| [React Hook Form](https://react-hook-form.com/) | Performant form state management |
-| [Zod v4](https://zod.dev/) | Runtime schema validation |
-| [@hookform/resolvers](https://github.com/react-hook-form/resolvers) | RHF + Zod integration |
-
-### External APIs
-
-| API | Widget |
-|-----|--------|
-| [OpenWeatherMap](https://openweathermap.org/api) | Weather forecasts & conditions |
-| [GNews](https://gnews.io/) | News headlines by category & country |
-| [CoinGecko](https://www.coingecko.com/en/api) | Cryptocurrency prices & market data |
-| [GitHub API](https://docs.github.com/en/rest) | Trending repos & user profiles |
+| [Groq](https://console.groq.com/) | Ultra-fast LLM inference with web search |
+| [Google Gemini](https://ai.google.dev/) | Alternative AI model (gemini-1.5-flash) |
+| [OpenWeatherMap](https://openweathermap.org/api) | Weather data |
+| [CoinGecko](https://www.coingecko.com/en/api) | Crypto prices |
 | [NASA API](https://api.nasa.gov/) | Astronomy Picture of the Day |
-| [AQICN](https://aqicn.org/api/) | Real-time air quality index |
-| [ExchangeRate API](https://www.exchangerate-api.com/) | Live forex / currency rates |
-| [Alpha Vantage](https://www.alphavantage.co/) | Stock market data |
-| [USGS Earthquake API](https://earthquake.usgs.gov/fdsnws/event/1/) | Global seismic activity |
-
-### Deployment & Tooling
-
-| Technology | Purpose |
-|-----------|---------|
-| [Vercel](https://vercel.com/) | Hosting & CI/CD |
-| [ESLint 9](https://eslint.org/) | Linting |
-| [tsx](https://github.com/privatenumber/tsx) | TypeScript script runner (DB seeding) |
-| [date-fns](https://date-fns.org/) | Date formatting & utilities |
+| [GNews](https://gnews.io/) | News headlines |
 
 ---
 
-## Getting Started
+## ⚡ Getting Started
 
 ### Prerequisites
+- Node.js 18+ 
+- MongoDB Atlas cluster ([free tier](https://www.mongodb.com/pricing) works perfectly)
 
-- Node.js 18+
-- MongoDB Atlas cluster (free tier works)
-
-### Installation
+### 1. Clone & Install
 
 ```bash
 git clone https://github.com/your-username/synapse.git
 cd synapse
 npm install
-```
-
-### Environment Variables
-
-Create a `.env.local` file in the root:
-
-```env
-# Database
-MONGODB_URI=mongodb+srv://<user>:<pass>@cluster.mongodb.net/synapse
-
-# NextAuth v5 (note: AUTH_SECRET and AUTH_URL, not NEXTAUTH_*)
-AUTH_SECRET=        # generate with: openssl rand -base64 32
-AUTH_URL=http://localhost:3000
-
-# Google OAuth
-GOOGLE_CLIENT_ID=
-GOOGLE_CLIENT_SECRET=
-
-# AI
-GEMINI_API_KEY=
-GROQ_API_KEY=
-
-# Widget APIs
-OPENWEATHERMAP_API_KEY=
-GNEWS_API_KEY=
-NASA_API_KEY=
-AQICN_API_KEY=
-EXCHANGERATE_API_KEY=
-ALPHA_VANTAGE_API_KEY=
-
-# Email
-RESEND_API_KEY=
-```
-
-### Run
-
-```bash
-# Development
-npm run dev
-
-# Seed the database with an admin user
-npm run seed
-
-# Production build
-npm run build && npm start
-```
-
-After seeding, the default admin credentials are:
-- **Email:** `admin@synapse.dev`
-- **Password:** `Admin@123`
-
----
-
-## Project Structure
-
-```
-src/
-├── app/
-│   ├── (auth)/          # Login, register, forgot/reset password
-│   ├── (dashboard)/     # Main dashboard & settings
-│   ├── (admin)/         # Admin panel
-│   └── api/             # API routes (widgets, auth, AI, admin)
-├── components/
-│   ├── ui/              # shadcn/ui base components
-│   ├── widgets/         # Individual widget components
-│   ├── dashboard/       # Dashboard layout & controls
-│   ├── ai/              # AI chat interface
-│   ├── layout/          # Navbar, sidebar, shell
-│   └── shared/          # Reusable shared components
-├── lib/                 # Auth, DB, Groq, Gemini, utilities
-├── models/              # Mongoose models
-├── types/               # TypeScript type definitions
-├── validators/          # Zod schemas
-└── scripts/
-    └── seed.ts          # Database seeding script
-```
-
----
-
-## Deployment (Vercel)
-
-1. Push code to GitHub and import the project on [Vercel](https://vercel.com)
-2. Add all environment variables in **Settings → Environment Variables**
-   - Use `AUTH_SECRET` and `AUTH_URL` (NextAuth v5 — not the `NEXTAUTH_*` variants)
-3. In MongoDB Atlas → Network Access, allow `0.0.0.0/0` or Vercel's IP ranges
-4. In Google Cloud Console, add your Vercel URL as an authorized redirect URI:
-   `https://your-app.vercel.app/api/auth/callback/google`
-5. Redeploy
-
----
-
-## License
-
-MIT
