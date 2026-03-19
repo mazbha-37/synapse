@@ -1,263 +1,200 @@
-# Synapse - AI-Powered Data Command Center
+# Synapse — Personal Data Command Center
 
-Synapse is a modern, full-stack web application that allows users to create personalized dashboards by combining real-time data widgets from multiple APIs. It features an AI assistant powered by Google Gemini that can analyze and summarize aggregated dashboard data.
+A real-time, AI-powered dashboard that aggregates live data from multiple APIs into a fully customizable drag-and-drop interface. Build your personal command center with widgets for weather, crypto, news, stocks, NASA, and more — all in one place.
 
-![Synapse Dashboard](https://via.placeholder.com/800x400?text=Synapse+Dashboard)
+**Live Demo → [synapse-ashy-psi.vercel.app](https://synapse-ashy-psi.vercel.app/)**
+
+---
 
 ## Features
 
-- **Multi-Source Widgets**: Connect to Weather, News, Cryptocurrency, GitHub, NASA APOD, and Air Quality APIs
-- **AI-Powered Insights**: Get intelligent analysis of your dashboard data with Google Gemini
-- **Drag & Drop Layout**: Intuitive grid system for arranging widgets
-- **Real-time Data**: All widgets fetch live data from their respective APIs
-- **Admin Panel**: Comprehensive user management, API health monitoring, and analytics
-- **Authentication**: Google OAuth and email/password authentication with NextAuth.js
-- **Dark/Light Mode**: Full theme support with next-themes
-- **Responsive Design**: Works seamlessly on desktop, tablet, and mobile
+- **Drag & Drop Dashboard** — Freely arrange and resize widgets using a responsive 12-column grid
+- **11 Live Data Widgets** — Weather, News, Crypto, GitHub, NASA APOD, Air Quality, Forex, Stocks, Earthquakes, Quote of the Day, Public Holidays
+- **Synapse AI Assistant** — Streaming chat powered by Groq (compound-beta with built-in web search) and Google Gemini, with full awareness of your live dashboard data
+- **Authentication** — Email/password and Google OAuth via NextAuth v5
+- **Admin Panel** — User management, audit logs, API health monitoring, and analytics charts
+- **Dark / Light Mode** — System-aware theme switching
+- **Responsive** — Adaptive grid breakpoints for all screen sizes
+
+---
 
 ## Tech Stack
 
-| Layer | Technology |
-|-------|------------|
-| Framework | Next.js 14+ (App Router) |
-| Language | TypeScript (Strict Mode) |
-| Styling | Tailwind CSS 3.4+ |
-| UI Components | shadcn/ui |
-| Authentication | NextAuth.js v5 (Auth.js) |
-| Database | MongoDB Atlas with Mongoose |
-| AI Integration | Google Gemini API |
-| Dashboard Grid | react-grid-layout |
-| Charts | Recharts |
+### Framework & Language
+
+| Technology | Details |
+|-----------|---------|
+| [Next.js 16](https://nextjs.org/) | App Router, API Routes, Server Components |
+| [React 19](https://react.dev/) | Latest concurrent features |
+| [TypeScript 5](https://www.typescriptlang.org/) | Strict mode throughout |
+
+### Database & Auth
+
+| Technology | Purpose |
+|-----------|---------|
+| [MongoDB Atlas](https://www.mongodb.com/) | Primary database |
+| [Mongoose 9](https://mongoosejs.com/) | ODM & schema modeling |
+| [NextAuth v5](https://authjs.dev/) | JWT sessions, Google OAuth, Credentials provider |
+| [bcryptjs](https://github.com/dcodeIO/bcrypt.js) | Password hashing |
+
+### AI & Communications
+
+| Technology | Purpose |
+|-----------|---------|
+| [Groq SDK](https://console.groq.com/) | Streaming AI chat — `compound-beta` model with built-in web search |
+| [Google Gemini](https://ai.google.dev/) | Alternative AI model — `gemini-1.5-flash` |
+| [Resend](https://resend.com/) | Transactional email for password reset |
+
+### UI & Styling
+
+| Technology | Purpose |
+|-----------|---------|
+| [Tailwind CSS v4](https://tailwindcss.com/) | Utility-first styling |
+| [shadcn/ui](https://ui.shadcn.com/) | Accessible, composable component primitives |
+| [Lucide React](https://lucide.dev/) | Icon library |
+| [Recharts](https://recharts.org/) | Data visualization & charts |
+| [react-grid-layout](https://github.com/react-grid-layout/react-grid-layout) | Draggable & resizable dashboard grid |
+| [Sonner](https://sonner.emilkowal.ski/) | Toast notifications |
+| [next-themes](https://github.com/pacocoursey/next-themes) | Dark / light mode |
+| [tw-animate-css](https://github.com/Wombosvideo/tw-animate-css) | CSS animation utilities |
+
+### Forms & Validation
+
+| Technology | Purpose |
+|-----------|---------|
+| [React Hook Form](https://react-hook-form.com/) | Performant form state management |
+| [Zod v4](https://zod.dev/) | Runtime schema validation |
+| [@hookform/resolvers](https://github.com/react-hook-form/resolvers) | RHF + Zod integration |
+
+### External APIs
+
+| API | Widget |
+|-----|--------|
+| [OpenWeatherMap](https://openweathermap.org/api) | Weather forecasts & conditions |
+| [GNews](https://gnews.io/) | News headlines by category & country |
+| [CoinGecko](https://www.coingecko.com/en/api) | Cryptocurrency prices & market data |
+| [GitHub API](https://docs.github.com/en/rest) | Trending repos & user profiles |
+| [NASA API](https://api.nasa.gov/) | Astronomy Picture of the Day |
+| [AQICN](https://aqicn.org/api/) | Real-time air quality index |
+| [ExchangeRate API](https://www.exchangerate-api.com/) | Live forex / currency rates |
+| [Alpha Vantage](https://www.alphavantage.co/) | Stock market data |
+| [USGS Earthquake API](https://earthquake.usgs.gov/fdsnws/event/1/) | Global seismic activity |
+
+### Deployment & Tooling
+
+| Technology | Purpose |
+|-----------|---------|
+| [Vercel](https://vercel.com/) | Hosting & CI/CD |
+| [ESLint 9](https://eslint.org/) | Linting |
+| [tsx](https://github.com/privatenumber/tsx) | TypeScript script runner (DB seeding) |
+| [date-fns](https://date-fns.org/) | Date formatting & utilities |
+
+---
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js 18+ 
-- MongoDB Atlas account (free tier works)
-- Google Cloud Console account (for OAuth)
-- API keys for external services
+- Node.js 18+
+- MongoDB Atlas cluster (free tier works)
 
 ### Installation
 
-1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/synapse.git
+git clone https://github.com/your-username/synapse.git
 cd synapse
-```
-
-2. Install dependencies:
-```bash
 npm install
 ```
 
-3. Set up environment variables:
-```bash
-cp .env.example .env.local
-```
+### Environment Variables
 
-4. Edit `.env.local` with your credentials:
+Create a `.env.local` file in the root:
+
 ```env
 # Database
-MONGODB_URI=mongodb+srv://<user>:<pass>@cluster.mongodb.net/synapse?retryWrites=true&w=majority
+MONGODB_URI=mongodb+srv://<user>:<pass>@cluster.mongodb.net/synapse
 
-# NextAuth
-NEXTAUTH_URL=http://localhost:3000
-NEXTAUTH_SECRET=your_secret_here
+# NextAuth v5 (note: AUTH_SECRET and AUTH_URL, not NEXTAUTH_*)
+AUTH_SECRET=        # generate with: openssl rand -base64 32
+AUTH_URL=http://localhost:3000
 
 # Google OAuth
-GOOGLE_CLIENT_ID=your_client_id
-GOOGLE_CLIENT_SECRET=your_client_secret
-
-# External APIs
-OPENWEATHERMAP_API_KEY=your_key
-GNEWS_API_KEY=your_key
-NASA_API_KEY=your_key
-AQICN_API_KEY=your_key
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
 
 # AI
-GEMINI_API_KEY=your_key
+GEMINI_API_KEY=
+GROQ_API_KEY=
+
+# Widget APIs
+OPENWEATHERMAP_API_KEY=
+GNEWS_API_KEY=
+NASA_API_KEY=
+AQICN_API_KEY=
+EXCHANGERATE_API_KEY=
+ALPHA_VANTAGE_API_KEY=
+
+# Email
+RESEND_API_KEY=
 ```
 
-5. Seed the database:
-```bash
-npx tsx scripts/seed.ts
-```
+### Run
 
-6. Run the development server:
 ```bash
+# Development
 npm run dev
+
+# Seed the database with an admin user
+npm run seed
+
+# Production build
+npm run build && npm start
 ```
 
-7. Open [http://localhost:3000](http://localhost:3000) in your browser.
+After seeding, the default admin credentials are:
+- **Email:** `admin@synapse.dev`
+- **Password:** `Admin@123`
 
-### Default Admin Credentials
-
-After seeding, you can log in with:
-- Email: `admin@synapse.dev`
-- Password: `Admin@123`
-
-## API Keys Setup
-
-### OpenWeatherMap
-1. Sign up at [openweathermap.org](https://openweathermap.org)
-2. Get your free API key
-3. Add to `.env.local`
-
-### GNews
-1. Sign up at [gnews.io](https://gnews.io)
-2. Get your free API key (100 requests/day)
-3. Add to `.env.local`
-
-### NASA API
-1. Sign up at [api.nasa.gov](https://api.nasa.gov)
-2. Get your free API key
-3. Add to `.env.local`
-
-### AQICN (Air Quality)
-1. Sign up at [aqicn.org/api](https://aqicn.org/api/)
-2. Get your free API key
-3. Add to `.env.local`
-
-### Google Gemini
-1. Go to [AI Studio](https://aistudio.google.com/app/apikey)
-2. Create a new API key
-3. Add to `.env.local`
-
-### Google OAuth
-1. Go to [Google Cloud Console](https://console.cloud.google.com/)
-2. Create a new project
-3. Enable Google+ API
-4. Create OAuth 2.0 credentials
-5. Add authorized redirect URI: `http://localhost:3000/api/auth/callback/google`
-6. Add credentials to `.env.local`
+---
 
 ## Project Structure
 
 ```
-synapse/
-├── src/
-│   ├── app/                 # Next.js App Router
-│   │   ├── (auth)/          # Auth route group
-│   │   ├── (dashboard)/     # Dashboard route group
-│   │   ├── (admin)/         # Admin route group
-│   │   └── api/             # API routes
-│   ├── components/
-│   │   ├── ui/              # shadcn/ui components
-│   │   ├── layout/          # Layout components
-│   │   ├── dashboard/       # Dashboard components
-│   │   ├── widgets/         # Widget components
-│   │   ├── ai/              # AI chat components
-│   │   └── admin/           # Admin components
-│   ├── lib/
-│   │   ├── apis/            # External API services
-│   │   ├── auth.ts          # NextAuth config
-│   │   ├── db.ts            # MongoDB connection
-│   │   ├── gemini.ts        # Gemini AI client
-│   │   └── constants.ts     # App constants
-│   ├── models/              # Mongoose models
-│   ├── types/               # TypeScript types
-│   └── validators/          # Zod schemas
-├── scripts/
-│   └── seed.ts              # Database seeding
-└── public/                  # Static assets
+src/
+├── app/
+│   ├── (auth)/          # Login, register, forgot/reset password
+│   ├── (dashboard)/     # Main dashboard & settings
+│   ├── (admin)/         # Admin panel
+│   └── api/             # API routes (widgets, auth, AI, admin)
+├── components/
+│   ├── ui/              # shadcn/ui base components
+│   ├── widgets/         # Individual widget components
+│   ├── dashboard/       # Dashboard layout & controls
+│   ├── ai/              # AI chat interface
+│   ├── layout/          # Navbar, sidebar, shell
+│   └── shared/          # Reusable shared components
+├── lib/                 # Auth, DB, Groq, Gemini, utilities
+├── models/              # Mongoose models
+├── types/               # TypeScript type definitions
+├── validators/          # Zod schemas
+└── scripts/
+    └── seed.ts          # Database seeding script
 ```
-
-## Widget Types
-
-### Weather
-- Current weather conditions
-- 5-day forecast
-- Temperature, humidity, wind speed
-- Configurable city and units (metric/imperial)
-
-### News
-- Latest headlines from GNews API
-- Filter by category and country
-- Configurable article count
-
-### Cryptocurrency
-- Real-time prices from CoinGecko
-- Price changes and market cap
-- 7-day sparkline charts
-- Configurable coins and currency
-
-### GitHub
-- Trending repositories
-- User profile stats
-- Stars, forks, and language info
-
-### NASA APOD
-- Astronomy Picture of the Day
-- HD images with explanations
-- Configurable count (1-5 images)
-
-### Air Quality
-- Real-time AQI data
-- Pollutant levels (PM2.5, PM10)
-- Color-coded health indicators
-
-## Admin Panel
-
-The admin panel provides:
-
-- **User Management**: View, activate/deactivate, and change user roles
-- **API Health Monitor**: Real-time status of all API integrations
-- **Analytics Dashboard**: User growth, widget popularity, API usage charts
-- **Audit Logs**: Complete activity tracking with filtering
-
-## Deployment
-
-### Vercel (Recommended)
-
-1. Push your code to GitHub
-2. Import project in [Vercel](https://vercel.com)
-3. Add environment variables in Vercel dashboard
-4. Deploy
-
-### MongoDB Atlas Configuration
-
-1. Whitelist Vercel's IP range or use `0.0.0.0/0` for all IPs
-2. Ensure your connection string uses the correct password
-
-## Environment Variables
-
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `MONGODB_URI` | MongoDB connection string | Yes |
-| `NEXTAUTH_URL` | Your app URL | Yes |
-| `NEXTAUTH_SECRET` | Random secret for JWT | Yes |
-| `GOOGLE_CLIENT_ID` | Google OAuth client ID | For Google auth |
-| `GOOGLE_CLIENT_SECRET` | Google OAuth secret | For Google auth |
-| `OPENWEATHERMAP_API_KEY` | Weather API key | Yes |
-| `GNEWS_API_KEY` | News API key | Yes |
-| `NASA_API_KEY` | NASA API key | Yes |
-| `AQICN_API_KEY` | Air quality API key | Yes |
-| `GEMINI_API_KEY` | Google Gemini API key | Yes |
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature-name`
-3. Commit your changes: `git commit -am 'Add feature'`
-4. Push to the branch: `git push origin feature-name`
-5. Submit a pull request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgments
-
-- [shadcn/ui](https://ui.shadcn.com/) for beautiful UI components
-- [NextAuth.js](https://next-auth.js.org/) for authentication
-- [Google Gemini](https://ai.google.dev/) for AI capabilities
-- All the free API providers that make this project possible
-
-## Support
-
-For support, email support@synapse.dev or open an issue on GitHub.
 
 ---
 
-Built with ❤️ using Next.js, TypeScript, and Tailwind CSS.
+## Deployment (Vercel)
+
+1. Push code to GitHub and import the project on [Vercel](https://vercel.com)
+2. Add all environment variables in **Settings → Environment Variables**
+   - Use `AUTH_SECRET` and `AUTH_URL` (NextAuth v5 — not the `NEXTAUTH_*` variants)
+3. In MongoDB Atlas → Network Access, allow `0.0.0.0/0` or Vercel's IP ranges
+4. In Google Cloud Console, add your Vercel URL as an authorized redirect URI:
+   `https://your-app.vercel.app/api/auth/callback/google`
+5. Redeploy
+
+---
+
+## License
+
+MIT

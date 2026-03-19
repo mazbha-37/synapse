@@ -1,15 +1,15 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const apiKey = process.env.GEMINI_API_KEY;
-
-if (!apiKey) {
-  throw new Error("GEMINI_API_KEY environment variable is not set");
+function getGenAI() {
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+    throw new Error("GEMINI_API_KEY environment variable is not set");
+  }
+  return new GoogleGenerativeAI(apiKey);
 }
 
-const genAI = new GoogleGenerativeAI(apiKey);
-
 export function getGeminiModel() {
-  return genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+  return getGenAI().getGenerativeModel({ model: "gemini-1.5-flash" });
 }
 
 export function createSystemPrompt(widgetData?: Record<string, unknown>): string {
