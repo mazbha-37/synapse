@@ -1,52 +1,46 @@
-&lt;div align="center"&gt;
-  &lt;a href="https://synapse-ashy-psi.vercel.app"&gt;
-    &lt;img src="public/logo.svg" alt="Synapse Logo" width="80" height="80"&gt;
-  &lt;/a&gt;
+<div align="center">
+  <h1>Synapse</h1>
 
-  &lt;h1 align="center"&gt;Synapse&lt;/h1&gt;
-  
-  &lt;p align="center"&gt;
-    &lt;strong&gt;Your Personal Data Command Center&lt;/strong&gt;&lt;br&gt;
+  <p>
+    <strong>Your Personal Data Command Center</strong><br>
     Real-time, AI-powered dashboard that aggregates live data into a customizable drag-and-drop interface.
-  &lt;/p&gt;
+  </p>
 
-  &lt;p align="center"&gt;
-    &lt;a href="https://synapse-ashy-psi.vercel.app"&gt;&lt;strong&gt;🚀 Live Demo&lt;/strong&gt;&lt;/a&gt; •
-    &lt;a href="#-screenshots"&gt;📸 Screenshots&lt;/a&gt; •
-    &lt;a href="#-features"&gt;✨ Features&lt;/a&gt; •
-    &lt;a href="#-tech-stack"&gt;🛠️ Tech Stack&lt;/a&gt; •
-    &lt;a href="#-getting-started"&gt;⚡ Quick Start&lt;/a&gt;
-  &lt;/p&gt;
+  <p>
+    <a href="#-screenshots">📸 Screenshots</a> •
+    <a href="#-features">✨ Features</a> •
+    <a href="#-tech-stack">🛠️ Tech Stack</a> •
+    <a href="#-getting-started">⚡ Quick Start</a>
+  </p>
 
-  &lt;p align="center"&gt;
-    &lt;img src="https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js" alt="Next.js 16"&gt;
-    &lt;img src="https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react" alt="React 19"&gt;
-    &lt;img src="https://img.shields.io/badge/TypeScript-5.0-3178C6?style=flat-square&logo=typescript" alt="TypeScript"&gt;
-    &lt;img src="https://img.shields.io/badge/Tailwind-v4-38B2AC?style=flat-square&logo=tailwind-css" alt="Tailwind"&gt;
-    &lt;img src="https://img.shields.io/badge/License-MIT-green.svg?style=flat-square" alt="License"&gt;
-    &lt;img src="https://img.shields.io/badge/Vercel-Deployed-000000?style=flat-square&logo=vercel" alt="Vercel"&gt;
-  &lt;/p&gt;
-&lt;/div&gt;
+  <p>
+    <img src="https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js" alt="Next.js 16">
+    <img src="https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react" alt="React 19">
+    <img src="https://img.shields.io/badge/TypeScript-5.0-3178C6?style=flat-square&logo=typescript" alt="TypeScript">
+    <img src="https://img.shields.io/badge/Tailwind-v4-38B2AC?style=flat-square&logo=tailwind-css" alt="Tailwind">
+    <img src="https://img.shields.io/badge/License-MIT-green.svg?style=flat-square" alt="License">
+  </p>
+</div>
 
 ---
 
 ## 📸 Screenshots
 
-&lt;div align="center"&gt;
-  &lt;img src="public/screenshots/landing-page.png" alt="Synapse Landing Page" width="100%"&gt;
-  &lt;p&gt;&lt;em&gt;Beautiful landing page with dark theme&lt;/em&gt;&lt;/p&gt;
-&lt;/div&gt;
+<div align="center">
+  <img src="public/screenshots/landing-page.png" alt="Synapse Landing Page" width="100%">
+  <p><em>Beautiful landing page with dark theme</em></p>
+</div>
 
-&lt;div align="center" style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;"&gt;
-  &lt;img src="public/screenshots/dashboard-widgets.png" alt="Dashboard Widgets" width="48%"&gt;
-  &lt;img src="public/screenshots/api-health-monitor.png" alt="API Health Monitor" width="48%"&gt;
-&lt;/div&gt;
-&lt;p align="center"&gt;&lt;em&gt;Left: Customizable widget dashboard | Right: Real-time API health monitoring&lt;/em&gt;&lt;/p&gt;
+<div align="center" style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+  <img src="public/screenshots/dashboard-widgets.png" alt="Dashboard Widgets" width="48%">
+  <img src="public/screenshots/health-monitor.png" alt="API Health Monitor" width="48%">
+</div>
+<p align="center"><em>Left: Customizable widget dashboard | Right: Real-time API health monitoring</em></p>
 
-&lt;div align="center"&gt;
-  &lt;img src="public/screenshots/analytics-dashboard.png" alt="Platform Analytics" width="80%"&gt;
-  &lt;p&gt;&lt;em&gt;Comprehensive analytics for platform usage and performance&lt;/em&gt;&lt;/p&gt;
-&lt;/div&gt;
+<div align="center">
+  <img src="public/screenshots/analytics-dashboard.png" alt="Platform Analytics" width="80%">
+  <p><em>Comprehensive analytics for platform usage and performance</em></p>
+</div>
 
 ---
 
@@ -107,12 +101,54 @@
 ## ⚡ Getting Started
 
 ### Prerequisites
-- Node.js 18+ 
+- Node.js 18+
 - MongoDB Atlas cluster ([free tier](https://www.mongodb.com/pricing) works perfectly)
 
 ### 1. Clone & Install
 
 ```bash
-git clone https://github.com/your-username/synapse.git
+git clone https://github.com/mazbha-37/synapse.git
 cd synapse
 npm install
+```
+
+### 2. Configure Environment Variables
+
+Create a `.env.local` file in the root of the project:
+
+```env
+# MongoDB
+MONGODB_URI=your_mongodb_connection_string
+
+# NextAuth
+NEXTAUTH_SECRET=your_nextauth_secret
+NEXTAUTH_URL=http://localhost:3000
+
+# Google OAuth
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+
+# AI
+GEMINI_API_KEY=your_gemini_api_key
+GROQ_API_KEY=your_groq_api_key
+
+# External APIs
+OPENWEATHERMAP_API_KEY=your_openweathermap_key
+GNEWS_API_KEY=your_gnews_key
+NASA_API_KEY=your_nasa_key
+AQICN_API_KEY=your_aqicn_key
+```
+
+### 3. Run the Development Server
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
